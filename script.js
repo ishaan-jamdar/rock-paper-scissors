@@ -22,18 +22,18 @@ function playRound(player, cpu) {
     }
   } else if (player === 'paper') {
     if (cpu === 'scissors') {
-      return 'You Lose! Scissors beats Paper'
+      return 'You Lose! Scissors beats Paper';
     } else {
-      return 'You Win! Paper beats Rock'
+      return 'You Win! Paper beats Rock';
     }
   } else if (player === 'scissors') {
     if (cpu === 'rock') {
-      return 'You Lose! Rock beats Scissors'
+      return 'You Lose! Rock beats Scissors';
     } else {
-      return 'You Win! Scissors beats Paper'
+      return 'You Win! Scissors beats Paper';
     }
   } else {
-    return 'Invalid Input'
+    return 'Invalid Input';
   }
 }
 
@@ -51,12 +51,12 @@ function game() {
     }
   }
   if (pScore === cScore) {
-    return 'The game has resulted in a Tie.'
+    return 'The game has resulted in a Tie.';
   } else if (pScore > cScore) {
-    return 'You WIN!!!'
+    return 'You WIN!!!';
   } else {
-    return 'You lose...'
+    return 'You lose...';
   }
 }
 
-console.log(game())
+console.log(game());
