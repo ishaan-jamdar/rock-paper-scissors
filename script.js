@@ -40,7 +40,23 @@ function playRound(player, cpu) {
 function game() {
   let pScore = 0;
   let cScore = 0;
+  let text;
   for (let i = 0; i < 5; i++) {
-    
+    text = playRound(prompt('Rock, Paper, or Scissors? '), computerPlay());
+    console.log(text);
+    if (text.includes('Win')) {
+      pScore++;
+    } else if (text.includes('Lose')) {
+      cScore++;
+    }
+  }
+  if (pScore === cScore) {
+    return 'The game has resulted in a Tie.'
+  } else if (pScore > cScore) {
+    return 'You WIN!!!'
+  } else {
+    return 'You lose...'
   }
 }
+
+console.log(game())
