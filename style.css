@@ -1,0 +1,35 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: slateblue;
+}
+
+.inputs, 
+.scores,
+.playAgain {
+  display: flex;
+  justify-content: space-around;
+}
+
+.inputs,
+.results {
+  margin-bottom: 64px;
+}
+
+.results {
+  color: antiquewhite;
+  font-weight: bolder;
+  text-align: center;
+}
+
+button {
+  background-color: antiquewhite;
+  padding: 16px;
+  border: none;
+  border-radius: 16px;
+}
+
+span {
+  color:antiquewhite;
+  font-size: large;
+  font-weight: bolder;
+}
