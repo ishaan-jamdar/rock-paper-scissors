@@ -96,5 +96,5 @@ function playAgain() {
   roundResult.textContent = 'Rematch? Go on then, Rock, Paper, or Scissors';
   cSpan.textContent = cScore;
   pSpan.textContent = pScore;
-  divAgain.removeChild(buttonAgain)
+  divAgain.removeChild(buttonAgain);
 }
