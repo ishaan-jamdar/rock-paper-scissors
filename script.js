@@ -1,3 +1,29 @@
+let pScore = 0;
+let cScore = 0;
+
+const buttons = document.querySelectorAll('button');
+const roundResult = document.querySelector('.results');
+const pSpan = document.querySelector('.pScore');
+const cSpan = document.querySelector('.cScore');
+let final = '';
+
+const divAgain = document.querySelector('.playAgain');
+const buttonAgain = document.createElement('button');
+buttonAgain.textContent = 'Play Again?'; 
+buttonAgain.addEventListener('click', playAgain);
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    if (!final) {
+      final = game(button.textContent);
+    }
+    if (final) {
+      roundResult.textContent = final;
+      divAgain.appendChild(buttonAgain);
+    }
+  });
+});
+
 function computerPlay() {
   const choice = Math.floor(Math.random() * 3 + 1);
   if (choice === 1) {
@@ -38,12 +64,10 @@ function playRound(player, cpu) {
 }
 
 function game(player) {
-  let pScore = 0;
-  let cScore = 0;
   let text;
 
   text = playRound(player, computerPlay());
-  console.log(text);
+  roundResult.textContent = text;
   
   if (text.includes('Win')) {
     pScore++;
@@ -51,19 +75,26 @@ function game(player) {
     cScore++;
   }
 
-  if (pScore === cScore) {
-    return 'The game has resulted in a Tie.';
-  } else if (pScore > cScore) {
-    return 'You WIN!!!';
-  } else {
-    return 'You lose...';
+  cSpan.textContent = cScore;
+  pSpan.textContent = pScore;
+
+  if (pScore === 5 || cScore === 5) {
+    if (pScore === cScore) {
+      return 'The game has resulted in a Tie.';
+    } else if (pScore > cScore) {
+      return 'You WIN!!!';
+    } else {
+      return 'You lose...';
+    }
   }
 }
 
-const buttons = document.querySelectorAll('button');
-
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    console.log(game(button.innerHTML))
-  });
-});
+function playAgain() {
+  final = '';
+  pScore = 0;
+  cScore = 0;
+  roundResult.textContent = 'Rematch? Go on then, Rock, Paper, or Scissors';
+  cSpan.textContent = cScore;
+  pSpan.textContent = pScore;
+  divAgain.removeChild(buttonAgain)
+}
